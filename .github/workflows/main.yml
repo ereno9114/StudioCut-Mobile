@@ -22,17 +22,9 @@ jobs:
         with:
           python-version: '3.12'
 
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.29.2'
-          channel: 'stable'
-
-      - name: Accept Android Licenses
-        run: yes | flutter doctor --android-licenses || true
-
       - run: pip install flet==0.27.6
 
-      - run: flet build apk --project studio_cut --module-name main --verbose
+      - run: flet build apk --project studio-cut
 
       - uses: actions/upload-artifact@v4
         with:
