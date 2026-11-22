@@ -22,9 +22,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Accept Android SDK Licenses
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - run: pip install flet==0.27.6
 
-      - run: flet build apk --project studio-cut
+      - run: flet build apk --project studio-cut -v
 
       - uses: actions/upload-artifact@v4
         with:
