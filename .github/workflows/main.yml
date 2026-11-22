@@ -27,7 +27,7 @@ jobs:
 
       - run: pip install --upgrade flet
 
-      - run: flet build apk --project studio-cut
+      - run: yes | flet build apk --project studio-cut
 
       - uses: actions/upload-artifact@v4
         with:
